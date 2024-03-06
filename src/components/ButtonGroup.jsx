@@ -1,5 +1,14 @@
+import Button from "./Button";
+
 const ButtonGroup = () => {
-  return <div>ButtonGroup</div>;
+  return (
+    <section className="button-group">
+      <Button />
+      <Button />
+      <Button />
+      <Button />
+    </section>
+  );
 };
 
 export default ButtonGroup;
