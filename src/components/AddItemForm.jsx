@@ -1,30 +1,22 @@
 import { useRef, useState } from "react";
 import Button from "./Button";
 
-const AddItemForm = ({ setItems }) => {
+const AddItemForm = ({ onAddItem }) => {
   const [itemText, setItemText] = useState("");
   const inputRef = useRef();
 
   const handleSubmit = (e) => {
-    (e) => {
-      e.preventDefault();
+    e.preventDefault();
 
-      //basic validation
-      if (!itemText) {
-        alert("Item cannot be empty!");
-        inputRef.current.focus();
-        return;
-      }
+    //basic validation
+    if (!itemText) {
+      alert("Item cannot be empty!");
+      inputRef.current.focus();
+      return;
+    }
 
-      const newItem = {
-        id: new Date().getTime(),
-        name: itemText,
-        packed: false,
-      };
-
-      setItems((prev) => [...prev, newItem]);
-      setItemText("");
-    };
+    onAddItem(itemText);
+    setItemText("");
   };
 
   return (

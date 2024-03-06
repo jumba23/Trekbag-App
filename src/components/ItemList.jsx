@@ -1,5 +1,4 @@
 const ItemList = ({ items }) => {
-  // console.log(items);
   return (
     <ul>
       {items.map((item) => {
@@ -12,11 +11,10 @@ const ItemList = ({ items }) => {
 export default ItemList;
 
 const Item = ({ item }) => {
-  console.log(item);
   return (
     <li className="item">
       <label>
-        <input type="checkbox" checked={item.checked} />
+        <input type="checkbox" />
         {item.name}
       </label>
       <button>❌</button>
