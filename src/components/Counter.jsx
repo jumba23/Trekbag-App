@@ -1,5 +1,9 @@
 const Counter = () => {
-  return <div>Counter</div>;
+  return (
+    <p>
+      <b>1</b>/3 items packed
+    </p>
+  );
 };
 
 export default Counter;
