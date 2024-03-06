@@ -1,12 +1,7 @@
-import { useState } from "react";
-import { initialItems } from "../lib/constants";
-
-const ItemList = () => {
-  const [items, setItems] = useState(initialItems);
-
+const ItemList = ({ items }) => {
   return (
     <ul>
-      {initialItems.map((item) => {
+      {items.map((item) => {
         return <Item key={item.name} item={item} checked={item.checked} />;
       })}
     </ul>
@@ -19,7 +14,7 @@ const Item = ({ item }) => {
   return (
     <li className="item">
       <label>
-        <input type="checkbox" />
+        <input type="checkbox" checked={item.checked} />
         {item.name}
       </label>
       <button>❌</button>
