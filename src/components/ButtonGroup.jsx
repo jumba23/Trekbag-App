@@ -3,10 +3,10 @@ import Button from "./Button";
 const ButtonGroup = () => {
   return (
     <section className="button-group">
-      <Button>Mark all as complete</Button>
-      <Button>Marl all as incomplete</Button>
-      <Button>Reset to initial</Button>
-      <Button>Remove all items</Button>
+      <Button type="secondary">Mark all as complete</Button>
+      <Button type="secondary">Marl all as incomplete</Button>
+      <Button type="secondary">Reset to initial</Button>
+      <Button type="secondary">Remove all items</Button>
     </section>
   );
 };
