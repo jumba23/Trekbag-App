@@ -1,4 +1,5 @@
 const ItemList = ({ items }) => {
+  // console.log(items);
   return (
     <ul>
       {items.map((item) => {
@@ -11,6 +12,7 @@ const ItemList = ({ items }) => {
 export default ItemList;
 
 const Item = ({ item }) => {
+  console.log(item);
   return (
     <li className="item">
       <label>
