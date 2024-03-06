@@ -1,5 +1,5 @@
-const Button = () => {
-  return <button className="btn">Add to list</button>;
+const Button = ({ children }) => {
+  return <button className="btn">{children}</button>;
 };
 
 export default Button;
