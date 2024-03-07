@@ -1,6 +1,9 @@
-const Button = ({ type, children }) => {
+const Button = ({ type, children, handleRemoveAllItem }) => {
   return (
-    <button className={`btn ${type === "secondary" ? "btn--secondary" : ""}`}>
+    <button
+      onClick={handleRemoveAllItem}
+      className={`btn ${type === "secondary" ? "btn--secondary" : ""}`}
+    >
       {children}
     </button>
   );

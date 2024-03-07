@@ -1,12 +1,16 @@
 import { secondaryButtons } from "../lib/constants";
 import Button from "./Button";
 
-const ButtonGroup = () => {
+const ButtonGroup = ({ handleRemoveAllItem }) => {
   return (
     <section className="button-group">
       {secondaryButtons.map((text) => {
         return (
-          <Button key={text} type="secondary">
+          <Button
+            handleRemoveAllItem={handleRemoveAllItem}
+            key={text}
+            type="secondary"
+          >
             {text}
           </Button>
         );
