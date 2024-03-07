@@ -9,6 +9,11 @@ import { initialItems } from "../lib/constants";
 function App() {
   const [items, setItems] = useState(initialItems);
 
+  const handleDeleteItem = (id) => {
+    const newItems = items.filter((item) => item.id !== id);
+    setItems(newItems);
+  };
+
   const handleAddItem = (newItemText) => {
     const newItem = {
       id: new Date().getTime(),
@@ -22,7 +27,7 @@ function App() {
     setItems(newItems);
   };
 
-  const handleRemoveAllItem = (itemName) => {
+  const handleRemoveAllItem = () => {
     setItems([]);
   };
 
@@ -49,7 +54,7 @@ function App() {
       <BackgroundHeading />
       <main>
         <Header />
-        <ItemList items={items} />
+        <ItemList items={items} handleDeleteItem={handleDeleteItem} />
         <Sidebar
           handleAddItem={handleAddItem}
           handleRemoveAllItem={handleRemoveAllItem}
