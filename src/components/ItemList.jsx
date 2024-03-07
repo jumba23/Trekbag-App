@@ -2,13 +2,7 @@ const ItemList = ({ items }) => {
   return (
     <ul>
       {items.map((item) => {
-        return (
-          <Item
-            key={item.name}
-            item={item}
-            onCheckChange={() => onItemCheck(item.name)}
-          />
-        );
+        return <Item key={item.id} item={item} />;
       })}
     </ul>
   );
@@ -16,15 +10,11 @@ const ItemList = ({ items }) => {
 
 export default ItemList;
 
-const Item = ({ item, onCheckChange }) => {
+const Item = ({ item }) => {
   return (
     <li className="item">
       <label>
-        <input
-          type="checkbox"
-          checked={item.checked}
-          onChange={onCheckChange}
-        />
+        <input type="checkbox" checked={item.packed} />
         {item.name}
       </label>
       <button>❌</button>
