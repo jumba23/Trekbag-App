@@ -14,6 +14,16 @@ function App() {
     setItems(newItems);
   };
 
+  const handleToggleItem = (id) => {
+    const newItems = items.map((item) => {
+      if (item.id === id) {
+        return { ...item, packed: !item.packed };
+      }
+      return item;
+    });
+    setItems(newItems);
+  };
+
   const handleAddItem = (newItemText) => {
     const newItem = {
       id: new Date().getTime(),
@@ -54,7 +64,11 @@ function App() {
       <BackgroundHeading />
       <main>
         <Header />
-        <ItemList items={items} handleDeleteItem={handleDeleteItem} />
+        <ItemList
+          items={items}
+          handleDeleteItem={handleDeleteItem}
+          handleToggleItem={handleToggleItem}
+        />
         <Sidebar
           handleAddItem={handleAddItem}
           handleRemoveAllItem={handleRemoveAllItem}
