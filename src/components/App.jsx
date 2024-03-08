@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BackgroundHeading from "./BackgroundHeading";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -7,7 +7,8 @@ import Sidebar from "./Sidebar";
 import { initialItems } from "../lib/constants";
 
 function App() {
-  const [items, setItems] = useState(initialItems);
+  const itemsFromLocalStorage = JSON.parse(localStorage.getItem("items"));
+  const [items, setItems] = useState(itemsFromLocalStorage || initialItems);
 
   const handleDeleteItem = (id) => {
     const newItems = items.filter((item) => item.id !== id);
@@ -58,6 +59,10 @@ function App() {
     });
     setItems(newItems);
   };
+
+  useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(items));
+  }, [items]);
 
   return (
     <>
