@@ -1,7 +1,7 @@
 import Select from "react-select";
 import EmptyView from "./EmptyView";
-import { useItemsContext } from "../lib/hooks";
 import { useMemo, useState } from "react";
+import { useItemsStore } from "../stores/itemsStore";
 
 const sortingOptions = [
   { label: "Sort by default", value: "default" },
@@ -11,7 +11,9 @@ const sortingOptions = [
 
 const ItemList = () => {
   const [sortBy, setSortBy] = useState("default");
-  const { items, handleDeleteItem, handleToggleItem } = useItemsContext();
+  const deleteItem = useItemsStore((state) => state.deleteItem);
+  const toggleItem = useItemsStore((state) => state.toggleItem);
+  const items = useItemsStore((state) => state.items);
 
   const sortedItems = useMemo(
     () =>
@@ -45,8 +47,8 @@ const ItemList = () => {
           <Item
             key={item.id}
             item={item}
-            onDeleteItem={handleDeleteItem}
-            onToggleItem={handleToggleItem}
+            onDeleteItem={deleteItem}
+            onToggleItem={toggleItem}
           />
         );
       })}

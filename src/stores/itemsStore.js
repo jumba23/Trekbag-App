@@ -6,9 +6,10 @@ export const useItemsStore = create((set) => ({
   addItem: (newItemText) => {
     const newItem = {
       id: new Date().getTime(),
+      name: newItemText,
       packed: false,
-      value: newItemText,
     };
+
     set((state) => ({ items: [...state.items, newItem] }));
   },
   deleteItem: (id) => {

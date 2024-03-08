@@ -1,3 +1,4 @@
+import { useItemsStore } from "../stores/itemsStore";
 import Counter from "./Counter";
 import Logo from "./Logo";
 
