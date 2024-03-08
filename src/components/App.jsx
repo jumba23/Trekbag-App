@@ -7,8 +7,10 @@ import Sidebar from "./Sidebar";
 import { initialItems } from "../lib/constants";
 
 function App() {
-  const itemsFromLocalStorage = JSON.parse(localStorage.getItem("items"));
-  const [items, setItems] = useState(itemsFromLocalStorage || initialItems);
+  // useState will read only once from localStorage when the page loads
+  const [items, setItems] = useState(() => {
+    return JSON.parse(localStorage.getItem("items")) || initialItems;
+  });
 
   const handleDeleteItem = (id) => {
     const newItems = items.filter((item) => item.id !== id);
