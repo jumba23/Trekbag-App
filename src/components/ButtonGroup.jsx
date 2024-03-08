@@ -1,11 +1,6 @@
 import Button from "./Button";
 
-const ButtonGroup = ({
-  handleRemoveAllItem,
-  handleResetToInitial,
-  handleMarkAllAsComplete,
-  handleMarkAllAsIncomplete,
-}) => {
+const ButtonGroup = () => {
   return (
     <section className="button-group">
       <Button onClick={handleMarkAllAsComplete} buttonType="secondary">

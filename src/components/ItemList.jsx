@@ -8,7 +8,7 @@ const sortingOptions = [
   { label: "Sort by unpacked", value: "unpacked" },
 ];
 
-const ItemList = ({ items, handleDeleteItem, handleToggleItem }) => {
+const ItemList = () => {
   const [sortBy, setSortBy] = useState("default");
 
   const sortedItems = useMemo(
