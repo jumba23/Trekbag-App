@@ -6,7 +6,7 @@ const ButtonGroup = () => {
   const markAllAsIncomplete = useItemsStore(
     (state) => state.markAllAsIncomplete
   );
-  const resetToInitial = useItemsStore((state) => state.resetToInitialItems);
+  const resetToInitialItems = useItemsStore((state) => state.resetToInitial);
   const removeAllItem = useItemsStore((state) => state.removeAllItems);
 
   return (
@@ -17,7 +17,7 @@ const ButtonGroup = () => {
       <Button onClick={markAllAsIncomplete} buttonType="secondary">
         Mark all as incomplete
       </Button>
-      <Button onClick={resetToInitial} buttonType="secondary">
+      <Button onClick={resetToInitialItems} buttonType="secondary">
         Reset to initial
       </Button>
       <Button onClick={removeAllItem} buttonType="secondary">
