@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { initialItems } from "../lib/constants";
 
-const ItemsContextProvider = () => {
+export const ItemsContext = createContext();
+
+const ItemsContextProvider = ({ children }) => {
   // useState will read only once from localStorage when the page loads
   const [items, setItems] = useState(() => {
     return JSON.parse(localStorage.getItem("items")) || initialItems;
@@ -59,7 +61,22 @@ const ItemsContextProvider = () => {
   useEffect(() => {
     localStorage.setItem("items", JSON.stringify(items));
   }, [items]);
-  return <div>ItemsContextProvider</div>;
+  return (
+    <ItemsContext.Provider
+      value={{
+        items,
+        handleDeleteItem,
+        handleToggleItem,
+        handleAddItem,
+        handleRemoveAllItem,
+        handleResetToInitial,
+        handleMarkAllAsComplete,
+        handleMarkAllAsIncomplete,
+      }}
+    >
+      {children}
+    </ItemsContext.Provider>
+  );
 };
 
 export default ItemsContextProvider;
